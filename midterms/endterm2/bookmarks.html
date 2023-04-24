@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Bookmarks</title>
+</head>
+<body>
+	<h1>Bookmarks</h1>
+
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>Name</th>
+			<th>Price</th>
+			<th>Rating</th>
+			<th>Actions</th>
+		</tr>
+		{{range .}}
+		<tr>
+			<td>{{.ID}}</td>
+			<td>{{.Name}}</td>
+			<td>{{.Price}}</td>
+			<td>{{.Rating}}</td>
+			<td>
+				<a href="/deleteBookmark?id={{.ID}}">Remove from bookmarks</a>
+			</td>
+		</tr>
+		{{end}}
+	</table>
+
+	<a href="/">Back to catalog</a>
+</body>
+</html>

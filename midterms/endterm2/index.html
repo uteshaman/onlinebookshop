@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Courses </title>
+</head>
+<body>
+    <h1>Courses</h1>
+
+    <form method="POST" action="/filter">
+        <label>Filter by price:</label>
+        <input type="text" name="minPrice" placeholder="Minimum price">
+        <input type="text" name="maxPrice" placeholder="Maximum price">
+        <input type="submit" value="Filter">
+    </form>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Rating</th>
+            <th>Rating</th>
+        </tr>
+        {{range .}}
+        <tr>
+            <td>{{.ID}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Price}}</td>
+            <td>{{.Rating}}</td>
+            <td>
+                <a href="/addBookmark?id={{.ID}}">Add to bookmarks</a>
+                <a href="/rateProduct?id={{.ID}}&rating=1">1</a>
+                <a href="/rateProduct?id={{.ID}}&rating=2">2</a>
+                <a href="/rateProduct?id={{.ID}}&rating=3">3</a>
+                <a href="/rateProduct?id={{.ID}}&rating=4">4</a>
+                <a href="/rateProduct?id={{.ID}}&rating=5">5</a>
+            </td>
+        </tr>
+        {{end}}
+    </table>
+
+    <a href="/bookmarks">Bookmarks</a>
+</body>
+</html>
